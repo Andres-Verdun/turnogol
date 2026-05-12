@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Reserva confirmada | TurnoGol</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="page-header">
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">⚽</span>
+        <span>Turno<span>Gol</span></span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="complejo.html">Canchas del Gringo</a></li>
+        <li><a href="reserva.html">Reservar</a></li>
+        <li><a href="#" class="active">Confirmación</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="confirmation-page">
+
+    <section class="confirmation-card">
+      <div class="success-icon">✓</div>
+
+      <span class="tag">Reserva confirmada</span>
+
+      <h1>Tu turno fue reservado</h1>
+
+      <p>
+        La reserva se registró correctamente de manera simulada. En una versión real,
+        el usuario recibiría la confirmación por email o WhatsApp.
+      </p>
+
+      <div class="confirmation-summary">
+        <div>
+          <span>Complejo</span>
+          <strong>Canchas del Gringo</strong>
+        </div>
+
+        <div>
+          <span>Cancha</span>
+          <strong>Cancha 1 - Fútbol 5</strong>
+        </div>
+
+        <div>
+          <span>Horario</span>
+          <strong>18:00</strong>
+        </div>
+
+        <div>
+          <span>Seña abonada</span>
+          <strong>$5.000</strong>
+        </div>
+
+        <div>
+          <span>Estado</span>
+          <strong class="status-ok">Confirmada</strong>
+        </div>
+      </div>
+
+      <div class="confirmation-actions">
+        <a href="index.html" class="btn">Volver al inicio</a>
+        <a href="complejo.html" class="btn btn-secondary">Reservar otro turno</a>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
