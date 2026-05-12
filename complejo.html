@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Canchas del Gringo | TurnoGol</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="page-header">
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">⚽</span>
+        <span>Turno<span>Gol</span></span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#complejos" class="active">Canchas</a></li>
+        <li><a href="reserva.html">Reservas</a></li>
+        <li><a href="#">Ingresar</a></li>
+        <li><a href="#" class="btn btn-small">Registrarse</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="complex-page">
+
+    <section class="complex-hero">
+      <div class="complex-info">
+        <span class="tag">Complejo disponible</span>
+
+        <h1>Canchas del Gringo</h1>
+
+        <p>
+          Complejo deportivo con canchas de fútbol 5 y fútbol 7, iluminación nocturna,
+          reservas por horario y posibilidad de asegurar el turno con seña online.
+        </p>
+
+        <div class="complex-meta">
+          <span>📍 Centenario, Neuquén</span>
+          <span>⚽ Fútbol 5 / 7</span>
+          <span>💳 Seña online</span>
+        </div>
+
+        <div class="complex-actions">
+          <a href="#reservar" class="btn">Reservar turno</a>
+          <a href="index.html" class="btn btn-secondary">Volver al inicio</a>
+        </div>
+      </div>
+
+      <div class="complex-photo">
+        <div class="photo-badge">
+          Desde <strong>$18.000/h</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="complex-layout">
+
+      <div class="complex-main">
+
+        <section class="info-card">
+          <h2>Información del complejo</h2>
+
+          <p>
+            Canchas del Gringo ofrece espacios preparados para partidos entre amigos,
+            torneos barriales y encuentros deportivos. La propuesta apunta a simplificar
+            la reserva de turnos y evitar confusiones por mensajes sueltos.
+          </p>
+
+          <div class="features-grid">
+            <article>
+              <span>🌙</span>
+              <h3>Iluminación nocturna</h3>
+              <p>Ideal para reservar después del trabajo, la escuela o durante la noche.</p>
+            </article>
+
+            <article>
+              <span>🕘</span>
+              <h3>Horarios disponibles</h3>
+              <p>Consultá los turnos libres antes de confirmar la reserva.</p>
+            </article>
+
+            <article>
+              <span>💳</span>
+              <h3>Reserva con seña</h3>
+              <p>Pagá una parte para asegurar el turno y aboná el resto en el lugar.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="info-card" id="reservar">
+          <h2>Canchas disponibles</h2>
+
+          <div class="field-list">
+
+            <article class="field-card">
+              <div>
+                <h3>Cancha 1</h3>
+                <p>Fútbol 5 · Césped sintético · Techada</p>
+              </div>
+
+              <div class="field-price">
+                <strong>$18.000</strong>
+                <span>por hora</span>
+              </div>
+
+              <a href="reserva.html" class="btn btn-card">Reservar</a>
+            </article>
+
+            <article class="field-card">
+              <div>
+                <h3>Cancha 2</h3>
+                <p>Fútbol 5 · Césped sintético · Exterior</p>
+              </div>
+
+              <div class="field-price">
+                <strong>$18.000</strong>
+                <span>por hora</span>
+              </div>
+
+              <a href="reserva.html" class="btn btn-card">Reservar</a>
+            </article>
+
+            <article class="field-card">
+              <div>
+                <h3>Cancha 3</h3>
+                <p>Fútbol 7 · Césped sintético · Iluminada</p>
+              </div>
+
+              <div class="field-price">
+                <strong>$25.000</strong>
+                <span>por hora</span>
+              </div>
+
+              <a href="reserva.html" class="btn btn-card">Reservar</a>
+            </article>
+
+          </div>
+        </section>
+
+        <section class="info-card">
+          <h2>Horarios más solicitados</h2>
+
+          <div class="schedule-grid">
+            <button>18:00</button>
+            <button>19:00</button>
+            <button>20:00</button>
+            <button>21:00</button>
+            <button>22:00</button>
+            <button class="disabled">23:00</button>
+          </div>
+
+          <p class="small-note">
+            Los horarios son demostrativos. En la versión real se cargarán desde una base de datos.
+          </p>
+        </section>
+
+      </div>
+
+      <aside class="booking-panel">
+        <h2>Reserva rápida</h2>
+
+        <form class="booking-form">
+          <label>
+            Cancha
+            <select>
+              <option>Cancha 1 - Fútbol 5</option>
+              <option>Cancha 2 - Fútbol 5</option>
+              <option>Cancha 3 - Fútbol 7</option>
+            </select>
+          </label>
+
+          <label>
+            Día
+            <input type="date" />
+          </label>
+
+          <label>
+            Horario
+            <select>
+              <option>18:00</option>
+              <option>19:00</option>
+              <option>20:00</option>
+              <option>21:00</option>
+              <option>22:00</option>
+            </select>
+          </label>
+
+          <label>
+            Duración
+            <select>
+              <option>1 hora</option>
+              <option>1 hora y media</option>
+              <option>2 horas</option>
+            </select>
+          </label>
+
+          <div class="summary-box">
+            <div>
+              <span>Precio estimado</span>
+              <strong>$18.000</strong>
+            </div>
+
+            <div>
+              <span>Seña online</span>
+              <strong>$5.000</strong>
+            </div>
+          </div>
+
+          <button type="submit" class="btn full-btn">
+            Confirmar reserva
+          </button>
+        </form>
+      </aside>
+
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

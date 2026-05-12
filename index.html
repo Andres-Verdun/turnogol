@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>TurnoGol | Reservá tu cancha</title>
+
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <header class="hero">
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">⚽</span>
+        <span>Turno<span>Gol</span></span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="#complejos">Canchas</a></li>
+        <li><a href="#reservas">Reservas</a></li>
+        <li><a href="#">Ingresar</a></li>
+        <li><a href="#" class="btn btn-small">Registrarse</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero-content">
+      <div class="chips">
+        <span>Seña online</span>
+        <span>Horarios disponibles</span>
+        <span>Reserva inmediata</span>
+      </div>
+
+      <h1>Reservá tu cancha <span>en segundos.</span></h1>
+
+      <p>
+        Elegí tu cancha en Canchas del Gringo, seleccioná día y horario,
+        y asegurá tu turno de forma rápida y organizada.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#busqueda" class="btn">Buscar cancha</a>
+        <a href="complejo.html" class="btn btn-secondary">Ver Canchas del Gringo</a>
+      </div>
+
+      <form class="search-card" id="busqueda">
+        <label>
+          Complejo
+          <select>
+            <option>Canchas del Gringo</option>
+          </select>
+        </label>
+
+        <label>
+          Día
+          <input type="date" />
+        </label>
+
+        <label>
+          Hora
+          <select>
+            <option>18:00</option>
+            <option>19:00</option>
+            <option>20:00</option>
+            <option>21:00</option>
+            <option>22:00</option>
+          </select>
+        </label>
+
+        <label>
+          Tipo de cancha
+          <select>
+            <option>Fútbol 5</option>
+            <option>Fútbol 7</option>
+          </select>
+        </label>
+
+        <button type="submit" class="btn">Buscar</button>
+      </form>
+    </section>
+  </header>
+
+  <main>
+
+    <section class="section" id="complejos">
+      <div class="section-title">
+        <h2>Complejo disponible</h2>
+        <p>
+          Primera versión de TurnoGol enfocada en la reserva de turnos para Canchas del Gringo.
+        </p>
+      </div>
+
+      <div class="single-complex">
+        <article class="complex-card featured-complex">
+          <div class="card-img card-img-1">
+            <span>Fútbol 5 / 7</span>
+          </div>
+
+          <div class="card-body">
+            <h3>Canchas del Gringo</h3>
+
+            <p>
+              Complejo deportivo ubicado en Centenario, Neuquén. Ideal para reservar
+              turnos de fútbol 5 y fútbol 7 de forma rápida, simple y organizada.
+            </p>
+
+            <div class="complex-highlights">
+              <span>📍 Centenario, Neuquén</span>
+              <span>⚽ Fútbol 5 / 7</span>
+              <span>💳 Seña online</span>
+              <span>🕘 Horarios disponibles</span>
+            </div>
+
+            <div class="card-footer">
+              <strong>Desde $18.000/h</strong>
+              <a href="complejo.html" class="btn btn-card">Ver canchas</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="benefits" id="reservas">
+      <article>
+        <span>📱</span>
+        <h3>Reservá fácil</h3>
+        <p>
+          Buscá la cancha, elegí día y horario, y confirmá el turno desde cualquier dispositivo.
+        </p>
+      </article>
+
+      <article>
+        <span>💳</span>
+        <h3>Pagá una seña</h3>
+        <p>
+          Asegurá tu reserva con un pago parcial y aboná el resto directamente en el lugar.
+        </p>
+      </article>
+
+      <article>
+        <span>🕘</span>
+        <h3>Elegí tu horario</h3>
+        <p>
+          Consultá los horarios disponibles y organizá el partido sin depender de mensajes sueltos.
+        </p>
+      </article>
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
