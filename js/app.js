@@ -1,9 +1,32 @@
+/* ============================= */
+/* MENÚ RESPONSIVE */
+/* ============================= */
+
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
 menuBtn?.addEventListener("click", () => {
   navLinks.classList.toggle("open");
 });
+
+/* ============================= */
+/* PROTECCIÓN DE PÁGINAS */
+/* ============================= */
+
+const paginasProtegidas = [
+  "confirmacion.html",
+  "mis-reservas.html"
+];
+
+const paginaActual = window.location.pathname.split("/").pop();
+
+const usuarioActual = JSON.parse(
+  localStorage.getItem("turnogol_usuario")
+);
+
+if (paginasProtegidas.includes(paginaActual) && !usuarioActual) {
+  window.location.href = "login.html";
+}
 
 /* ============================= */
 /* BUSCADOR HOME */
@@ -13,6 +36,7 @@ const formBusqueda = document.querySelector(".search-card");
 
 formBusqueda?.addEventListener("submit", (e) => {
   e.preventDefault();
+
   window.location.href = "complejo.html";
 });
 
@@ -24,6 +48,7 @@ const bookingForm = document.querySelector(".booking-form");
 
 bookingForm?.addEventListener("submit", (e) => {
   e.preventDefault();
+
   window.location.href = "reserva.html";
 });
 
@@ -89,11 +114,27 @@ actualizarResumen();
 reserveForm?.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const formData = new FormData(reserveForm);
+  const usuarioLogueado = JSON.parse(
+    localStorage.getItem("turnogol_usuario")
+  );
 
-  const nombre = reserveForm.querySelector('input[placeholder="Ej: Juan Pérez"]')?.value || "";
-  const telefono = reserveForm.querySelector('input[placeholder="Ej: 299 000 0000"]')?.value || "";
-  const email = reserveForm.querySelector('input[type="email"]')?.value || "";
+  if (!usuarioLogueado) {
+    alert("Para confirmar la reserva, primero tenés que ingresar o registrarte.");
+
+    localStorage.setItem("turnogol_redirect_after_login", "reserva.html");
+
+    window.location.href = "login.html";
+    return;
+  }
+
+  const nombre =
+    reserveForm.querySelector('input[placeholder="Ej: Juan Pérez"]')?.value || "";
+
+  const telefono =
+    reserveForm.querySelector('input[placeholder="Ej: 299 000 0000"]')?.value || "";
+
+  const email =
+    reserveForm.querySelector('input[type="email"]')?.value || "";
 
   const precioTotal = obtenerPrecioTotal();
   const senia = 5000;
@@ -144,6 +185,7 @@ function formatearFecha(fecha) {
   if (!fecha) return "Sin fecha";
 
   const partes = fecha.split("-");
+
   if (partes.length !== 3) return fecha;
 
   return `${partes[2]}/${partes[1]}/${partes[0]}`;
@@ -222,82 +264,79 @@ renderizarReservas();
 limpiarReservasBtn?.addEventListener("click", () => {
   localStorage.removeItem("turnogol_reservas");
   localStorage.removeItem("turnogol_ultima_reserva");
+
   renderizarReservas();
 });
 
 /* ============================= */
-/* PANEL DEL DUEÑO */
+/* LOGIN / REGISTRO */
 /* ============================= */
 
-const ownerReservasLista = document.getElementById("ownerReservasLista");
-const totalReservas = document.getElementById("totalReservas");
-const totalSenias = document.getElementById("totalSenias");
-const totalPendiente = document.getElementById("totalPendiente");
+const authTabs = document.querySelectorAll(".auth-tab");
+const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
 
-function renderizarPanelDuenio() {
-  if (!ownerReservasLista) return;
+authTabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    const authType = tab.dataset.auth;
 
-  const reservas =
-    JSON.parse(localStorage.getItem("turnogol_reservas")) || [];
+    authTabs.forEach((item) => item.classList.remove("active"));
+    tab.classList.add("active");
 
-  if (totalReservas) {
-    totalReservas.textContent = reservas.length;
-  }
+    if (authType === "login") {
+      loginForm?.classList.remove("hidden");
+      registerForm?.classList.add("hidden");
+    }
 
-  const senias = reservas.reduce((acc, reserva) => acc + reserva.senia, 0);
-  const pendientes = reservas.reduce((acc, reserva) => acc + reserva.resta, 0);
+    if (authType === "register") {
+      registerForm?.classList.remove("hidden");
+      loginForm?.classList.add("hidden");
+    }
+  });
+});
 
-  if (totalSenias) {
-    totalSenias.textContent = formatearPesos(senias);
-  }
+loginForm?.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-  if (totalPendiente) {
-    totalPendiente.textContent = formatearPesos(pendientes);
-  }
+  localStorage.setItem(
+    "turnogol_usuario",
+    JSON.stringify({
+      nombre: "Usuario de prueba",
+      rol: "usuario"
+    })
+  );
 
-  if (reservas.length === 0) {
-    ownerReservasLista.innerHTML = `
-      <div class="owner-empty">
-        <h2>No hay reservas registradas</h2>
-        <p>
-          Cuando un usuario confirme un turno, aparecerá en este panel.
-        </p>
-      </div>
-    `;
+  const redirect =
+    localStorage.getItem("turnogol_redirect_after_login") || "mis-reservas.html";
+
+  localStorage.removeItem("turnogol_redirect_after_login");
+
+  window.location.href = redirect;
+});
+
+registerForm?.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const tipoCuenta = document.getElementById("tipoCuenta")?.value || "usuario";
+
+  localStorage.setItem(
+    "turnogol_usuario",
+    JSON.stringify({
+      nombre: "Usuario registrado",
+      rol: tipoCuenta
+    })
+  );
+
+  const redirect =
+    localStorage.getItem("turnogol_redirect_after_login") || "mis-reservas.html";
+
+  localStorage.removeItem("turnogol_redirect_after_login");
+
+  if (tipoCuenta === "duenio") {
+    alert("Cuenta de dueño creada. Más adelante se habilitará el panel del complejo.");
+    window.location.href = "index.html";
     return;
   }
 
-  ownerReservasLista.innerHTML = reservas
-    .map((reserva) => {
-      return `
-        <article class="owner-reservation-card">
-          <div>
-            <h3>${reserva.nombre || "Cliente sin nombre"}</h3>
-            <p>
-              ${reserva.complejo} · ${reserva.cancha}
-            </p>
-
-            <div class="owner-reservation-data">
-              <span>📅 ${formatearFecha(reserva.fecha)}</span>
-              <span>🕘 ${reserva.horario}</span>
-              <span>⏱️ ${reserva.duracion}</span>
-              <span>📞 ${reserva.telefono || "Sin teléfono"}</span>
-              <span>✉️ ${reserva.email || "Sin email"}</span>
-              <span>✅ ${reserva.estado}</span>
-            </div>
-          </div>
-
-          <div class="owner-money">
-            <strong>${formatearPesos(reserva.senia)}</strong>
-            <span>Seña abonada</span>
-            <br><br>
-            <strong>${formatearPesos(reserva.resta)}</strong>
-            <span>Resta abonar</span>
-          </div>
-        </article>
-      `;
-    })
-    .join("");
-}
-
-renderizarPanelDuenio();
+  window.location.href = redirect;
+});

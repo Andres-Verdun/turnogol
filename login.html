@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ingresar | TurnoGol</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="page-header">
+    <nav class="navbar">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">⚽</span>
+        <span>Turno<span>Gol</span></span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="complejo.html">Canchas del Gringo</a></li>
+        <li><a href="reserva.html">Reservar</a></li>
+        <li><a href="mis-reservas.html">Mis reservas</a></li>
+        <li><a href="login.html" class="active">Ingresar</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="auth-page">
+
+    <section class="auth-card">
+
+      <div class="auth-info">
+        <span class="tag">Acceso a TurnoGol</span>
+
+        <h1>Ingresá o creá tu cuenta</h1>
+
+        <p>
+          Con una cuenta vas a poder reservar turnos, ver tus reservas y recibir
+          confirmaciones. Más adelante, los dueños de complejos podrán administrar
+          sus canchas desde un panel propio.
+        </p>
+
+        <div class="auth-benefits">
+          <span>⚽ Reservas rápidas</span>
+          <span>💳 Seña online</span>
+          <span>🕘 Historial de turnos</span>
+        </div>
+      </div>
+
+      <div class="auth-box">
+
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-auth="login">Ingresar</button>
+          <button class="auth-tab" data-auth="register">Registrarse</button>
+        </div>
+
+        <form class="auth-form auth-form-login" id="loginForm">
+          <h2>Iniciar sesión</h2>
+
+          <label>
+            Email
+            <input type="email" placeholder="usuario@email.com" required />
+          </label>
+
+          <label>
+            Contraseña
+            <input type="password" placeholder="Tu contraseña" required />
+          </label>
+
+          <button type="submit" class="btn full-btn">
+            Ingresar
+          </button>
+
+          <p class="small-note">
+            Inicio de sesión simulado. Después lo conectamos con base de datos.
+          </p>
+        </form>
+
+        <form class="auth-form auth-form-register hidden" id="registerForm">
+          <h2>Crear cuenta</h2>
+
+          <label>
+            Nombre y apellido
+            <input type="text" placeholder="Ej: Juan Pérez" required />
+          </label>
+
+          <label>
+            Email
+            <input type="email" placeholder="usuario@email.com" required />
+          </label>
+
+          <label>
+            Teléfono
+            <input type="tel" placeholder="Ej: 299 000 0000" required />
+          </label>
+
+          <label>
+            Contraseña
+            <input type="password" placeholder="Crear contraseña" required />
+          </label>
+
+          <label>
+            Tipo de cuenta
+            <select id="tipoCuenta">
+              <option value="usuario">Usuario / jugador</option>
+              <option value="duenio">Dueño de complejo</option>
+            </select>
+          </label>
+
+          <button type="submit" class="btn full-btn">
+            Crear cuenta
+          </button>
+
+          <p class="small-note">
+            El tipo de cuenta permitirá mostrar funciones distintas según el rol.
+          </p>
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
