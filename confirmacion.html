@@ -26,6 +26,7 @@
         <li><a href="complejo.html">Canchas del Gringo</a></li>
         <li><a href="reserva.html">Reservar</a></li>
         <li><a href="mis-reservas.html">Mis reservas</a></li>
+        <li><a href="login.html">Ingresar</a></li>
         <li><a href="#" class="active">Confirmación</a></li>
       </ul>
     </nav>
@@ -41,39 +42,64 @@
       <h1>Tu turno fue reservado</h1>
 
       <p>
-        La reserva se registró correctamente de manera simulada. En una versión real,
-        el usuario recibiría la confirmación por email o WhatsApp.
+        La reserva se registró correctamente. En una versión real, el usuario recibiría
+        la confirmación por email o WhatsApp.
       </p>
 
       <div class="confirmation-summary">
         <div>
           <span>Complejo</span>
-          <strong>Canchas del Gringo</strong>
+          <strong id="confirmComplejo">Canchas del Gringo</strong>
         </div>
 
         <div>
           <span>Cancha</span>
-          <strong>Cancha 1 - Fútbol 5</strong>
+          <strong id="confirmCancha">Cancha seleccionada</strong>
+        </div>
+
+        <div>
+          <span>Fecha</span>
+          <strong id="confirmFecha">Fecha seleccionada</strong>
         </div>
 
         <div>
           <span>Horario</span>
-          <strong>18:00</strong>
+          <strong id="confirmHorario">Horario seleccionado</strong>
+        </div>
+
+        <div>
+          <span>Duración</span>
+          <strong id="confirmDuracion">Duración seleccionada</strong>
+        </div>
+
+        <div>
+          <span>Cliente</span>
+          <strong id="confirmCliente">Cliente</strong>
+        </div>
+
+        <div>
+          <span>Precio total</span>
+          <strong id="confirmPrecio">$0</strong>
         </div>
 
         <div>
           <span>Seña abonada</span>
-          <strong>$5.000</strong>
+          <strong id="confirmSenia">$0</strong>
+        </div>
+
+        <div>
+          <span>Resta abonar</span>
+          <strong id="confirmResta">$0</strong>
         </div>
 
         <div>
           <span>Estado</span>
-          <strong class="status-ok">Confirmada</strong>
+          <strong id="confirmEstado" class="status-ok">Confirmada</strong>
         </div>
       </div>
 
       <div class="confirmation-actions">
-        <a href="index.html" class="btn">Volver al inicio</a>
+        <a href="mis-reservas.html" class="btn">Ver mis reservas</a>
         <a href="complejo.html" class="btn btn-secondary">Reservar otro turno</a>
       </div>
     </section>
